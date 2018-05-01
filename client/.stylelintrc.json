@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss"
+  ],
+  "extends": [
+    "stylelint-config-sass-guidelines"
+  ],
+  "rules": {
+    "color-named": "never",
+    "color-hex-length": "long",
+    "selector-class-pattern": null,
+    "string-quotes": "single",
+    "block-no-empty": null
+  }
+}

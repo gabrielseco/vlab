@@ -1,0 +1,57 @@
+{
+  "name": "vlab-backend",
+  "version": "1.0.0",
+  "description": "Backend for vlab",
+  "license": "MIT",
+  "scripts": {
+    "exec:register": "ts-node src/modules/auth/register.exec",
+    "start": "node index.js",
+    "start:watch": "nodemon",
+    "prestart:prod": "tsc",
+    "start:prod": "node dist/main.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll --coverage"
+  },
+  "dependencies": {
+    "@nestjs/common": "^4.6.6",
+    "@nestjs/core": "^4.6.6",
+    "@nestjs/microservices": "^4.6.6",
+    "@nestjs/swagger": "^1.2.2",
+    "@nestjs/testing": "^4.6.6",
+    "axios": "^0.18.0",
+    "bcrypt": "^2.0.1",
+    "class-validator": "^0.8.5",
+    "dotenv": "^5.0.1",
+    "jsonwebtoken": "^8.2.1",
+    "mysql": "^2.15.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "redis": "^2.8.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^5.5.10",
+    "typeorm": "^0.1.20",
+    "typescript": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^4.0.3",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^9.6.5",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "ts-jest": "^22.4.3",
+    "ts-node": "^5.0.1",
+    "tslint": "5.9.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "coveragePathIgnorePatterns" : ["<rootDir>/config" ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 30,
+      "functions": 50,
+      "lines": 50,
+      "statements": 50
+    }
+  },
+  "notify": true,
+  "moduleNameMapper": {
+    "components(.*)$": "<rootDir>/src/components/$1",
+    "containers(.*)$": "<rootDir>/src/containers/$1",
+    "\\.(scss)$": "<rootDir>/config/jest/styleMock.js"
+  },
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "setupFiles": [
+    "<rootDir>/config/jest/test-shim.js",
+    "<rootDir>/config/jest/test-setup.js"
+  ],
+  "transform": {
+    "^.+\\.js$": "babel-jest"
+  },
+  "verbose": true
+}
