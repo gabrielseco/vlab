@@ -5,7 +5,7 @@ import {
   HttpCode,
   Get,
   Body,
-  HttpException,
+  HttpException
 } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
@@ -19,11 +19,25 @@ export class AuthController {
   @Post('signup')
   @ApiResponse({
     status: HttpStatus.CREATED,
-    description: API_MESSAGES.AUTH.SIGN_UP,
+    description: API_MESSAGES.AUTH.SIGN_UP
   })
-  public async signup(@Body() userDto: UserDto) {
+  public async signUp(@Body() userDto: UserDto) {
     try {
       await this.authService.signUser(userDto);
+      return await this.authService.createToken(userDto);
+    } catch (err) {
+      throw new HttpException(err.toString(), HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @Post('login')
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: API_MESSAGES.AUTH.LOGIN.DESCRIPTION
+  })
+  public async login(@Body() userDto: UserDto) {
+    try {
+      await this.authService.login(userDto);
       return await this.authService.createToken(userDto);
     } catch (err) {
       throw new HttpException(err.toString(), HttpStatus.BAD_REQUEST);

@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { UserDto } from './user.dto';
 import { Constants } from '../../constants';
 import { IUser } from './user.interface';
+import { API_MESSAGES } from '../../core/api_messages';
 
 @Component()
 export class AuthService {
@@ -25,6 +26,24 @@ export class AuthService {
     }
   }
 
+  async login(userDto: UserDto) {
+    const user = await this.userRepository.findOne({
+      username: userDto.username
+    });
+
+    if (user) {
+      const comparePasswords = await bcrypt.compare(
+        userDto.password,
+        user.password
+      );
+      if (!comparePasswords) {
+        throw new Error(API_MESSAGES.AUTH.LOGIN.INVALID_PASSWORD);
+      }
+    } else {
+      throw new Error(API_MESSAGES.AUTH.LOGIN.USER_NOT_FOUND);
+    }
+  }
+
   async createToken(userDto: UserDto) {
     const expiresIn = 60 * 60,
       secretOrKey = 'secret';
@@ -34,11 +53,5 @@ export class AuthService {
       expires_in: expiresIn,
       access_token: token
     };
-  }
-
-  async validateUser(signedUser): Promise<boolean> {
-    // put some validation logic here
-    // for example query user by id / email / username
-    return true;
   }
 }
