@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "exec:register": "ts-node src/modules/auth/register.exec",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
     "start": "node index.js",
     "start:watch": "nodemon",
     "prestart:prod": "tsc",
@@ -36,11 +38,33 @@
     "@types/dotenv": "^4.0.3",
     "@types/jest": "^22.2.3",
     "@types/node": "^9.6.5",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
     "jest": "^22.4.3",
+    "lint-staged": "^7.0.5",
     "nodemon": "^1.17.3",
+    "prettier": "^1.12.1",
     "ts-jest": "^22.4.3",
     "ts-node": "^5.0.1",
-    "tslint": "5.9.1"
+    "tslint": "5.9.1",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "client/node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint",
+      "prettier --parser typescript --write --single-quote",
+      "git add"
+    ]
   },
   "jest": {
     "transform": {
