@@ -8,9 +8,9 @@ import { IUser } from './user.interface';
 
 @Component()
 export class AuthService {
-
   constructor(
-    @Inject(Constants.UserRepositoryToken) private readonly userRepository: Repository<IUser>,
+    @Inject(Constants.UserRepositoryToken)
+    private readonly userRepository: Repository<IUser>
   ) {}
 
   async signUser(user: UserDto) {
@@ -18,10 +18,10 @@ export class AuthService {
       const newUser = {
         ...user,
         password: bcrypt.hashSync(user.password, 10)
-      }
+      };
       await this.userRepository.save(newUser);
     } catch (error) {
-      console.log('error creating user', error);
+      throw new Error(error);
     }
   }
 
@@ -32,7 +32,7 @@ export class AuthService {
     const token = jwt.sign(user, secretOrKey, { expiresIn });
     return {
       expires_in: expiresIn,
-      access_token: token,
+      access_token: token
     };
   }
 
