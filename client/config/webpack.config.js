@@ -24,6 +24,11 @@ module.exports = {
   optimization: optimization,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        BASE_URL: JSON.stringify('http://localhost:3000')
+      }
+    }),
     new HtmlWebpackPlugin({
       title: TITLE,
       template: './assets/index.html',

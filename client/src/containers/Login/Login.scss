@@ -1,10 +1,39 @@
-.loginContainer {
-  background: #eeeeee;
+$container-background: #eeeeee;
+
+$subcontainer-width: 350px;
+$subcontainer-background: #ffffff;
+
+$form-control-padding: 10px;
+$form-control-margin-bottom: 10px;
+
+.container {
+  align-items: center;
+  background: $container-background;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  justify-content: center;
+  text-align: center;
 }
 
-.loginHeader {
-  text-align: center;
+.subContainer {
+  background: $subcontainer-background;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: $subcontainer-width;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    margin-bottom: $form-control-margin-bottom;
+    padding: $form-control-padding;
+  }
+
+  button {
+    padding: $form-control-padding;
+  }
 }

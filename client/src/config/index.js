@@ -1,1 +1,2 @@
-export const BASE_URL = 'http://localhost:8000';
+/* eslint-disable */
+export const BASE_URL = process.env.BASE_URL;
