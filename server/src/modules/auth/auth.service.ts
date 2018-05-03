@@ -51,7 +51,7 @@ export class AuthService {
     const token = jwt.sign(user, secretOrKey, { expiresIn });
     return {
       expires_in: expiresIn,
-      access_token: token
+      token: token
     };
   }
 }
