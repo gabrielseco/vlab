@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Login.scss';
+import type { LoginForm } from './../../flow/login';
 
-import { AuthService } from 'services';
+import { AuthService } from 'services/Auth';
 
-class Login extends Component {
+class Login extends Component<{}, LoginForm> {
+  authService: AuthService;
   constructor(props) {
     super(props);
     this.state = {

@@ -1,9 +1,13 @@
+// @flow strict
 export class LocalStorageService {
-  set(key, value) {
+  set(key: string, value: string) {
     localStorage.setItem(key, value);
   }
 
-  get(name) {
-    return localStorage.getItem(name);
+  get(name: string): ?string {
+    const temporalValue = localStorage.getItem(name);
+    return temporalValue !== null && temporalValue !== 'undefined'
+      ? temporalValue
+      : '';
   }
 }

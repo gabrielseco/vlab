@@ -1,7 +1,8 @@
-export function promiseWithDelay(response, duration) {
-  return new Promise((resolve) => {
+// @flow strict
+export function promiseWithDelay<T>(response: T, duration: number) {
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve(response);
-    }, duration)
+    }, duration);
   });
 }

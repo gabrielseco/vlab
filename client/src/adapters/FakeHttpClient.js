@@ -1,15 +1,17 @@
+// @flow
 import { promiseWithDelay } from './../utils';
 
 export class FakeHttpClient {
-  constructor(BASE_URL) {
+  BASE_URL: string;
+  constructor(BASE_URL: string) {
     this.BASE_URL = BASE_URL;
   }
 
-  async get(URL, response, duration = 500) {
+  async get<T>(URL: string, response: T, duration: number = 500) {
     return promiseWithDelay(response, duration);
   }
 
-  async post(URL, data, response, duration = 500) {
+  async post<T, U>(URL: string, data: T, response: U, duration: number = 500) {
     return promiseWithDelay(response, duration);
   }
 }
