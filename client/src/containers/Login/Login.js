@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './Login.scss';
 
 import { AuthService } from 'services';
@@ -18,11 +20,11 @@ class Login extends Component {
   async onSubmit(evt) {
     evt.preventDefault();
     // TODO TRY CATCH
-    const { token } = await this.authService.signIn(this.state);
+    const response = await this.authService.signIn(this.state);
 
-    this.authService.setToken(token);
+    this.authService.setToken(response.data.token);
 
-    /* this.router.navigateTo('/home'); */
+    this.props.history.push('/home');
   }
 
   onChange(evt) {
@@ -42,16 +44,16 @@ class Login extends Component {
             <input
               type="text"
               name="username"
+              placeholder="Usuario"
               value={this.state.username}
               onChange={this.onChange}
-              placeholder="Usuario"
             />
             <input
               type="password"
               name="password"
+              placeholder="Contraseña"
               value={this.state.password}
               onChange={this.onChange}
-              placeholder="Contraseña"
             />
             <button type="submit">Log In</button>
           </form>
@@ -61,6 +63,8 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {};
+Login.propTypes = {
+  history: PropTypes.object.isRequired
+};
 
-export default Login;
+export default withRouter(Login);

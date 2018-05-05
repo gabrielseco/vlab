@@ -4,6 +4,6 @@ export class LocalStorageService {
   }
 
   get(name) {
-    return localStorage.get(name);
+    return localStorage.getItem(name);
   }
 }

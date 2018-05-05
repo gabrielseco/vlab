@@ -12,6 +12,11 @@ export class AuthService {
     return this.httpClient.post('/auth/login', form);
   }
 
+  isAuthenticated() {
+    const token = this.getToken();
+    return token !== 'undefined' && token !== null;
+  }
+
   getToken() {
     return this.localStorage.get('token');
   }
