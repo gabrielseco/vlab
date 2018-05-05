@@ -44,6 +44,23 @@ export class AuthService {
     }
   }
 
+  async changePassword(userDto: UserDto) {
+    const user = await this.userRepository.findOne({
+      username: userDto.username
+    });
+
+    if (user) {
+      const newUser = {
+        ...user,
+        password: bcrypt.hashSync(userDto.password, 10)
+      };
+
+      await this.userRepository.updateById(user.id, newUser);
+    } else {
+      throw new Error(API_MESSAGES.AUTH.LOGIN.USER_NOT_FOUND);
+    }
+  }
+
   async createToken(userDto: UserDto) {
     const expiresIn = 60 * 60,
       secretOrKey = 'secret';

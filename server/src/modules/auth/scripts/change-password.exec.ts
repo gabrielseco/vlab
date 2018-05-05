@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as dotenv from 'dotenv';
-import { IUser } from './user.interface';
-import { Prompt } from './../../core/prompt';
+import { IUser } from './../user.interface';
+import { Prompt } from './../../../core/prompt';
 
 dotenv.config();
 
@@ -12,7 +12,7 @@ function main() {
   Prompt.ask('Usuario: ')
     .then(answerUsername => {
       user.username = answerUsername.trim();
-      return Prompt.ask('Contraseña: ', { type: 'password' });
+      return Prompt.ask('Nueva Contraseña: ', { type: 'password' });
     })
     .then(answerPassword => {
       user.password = answerPassword.trim();
@@ -20,19 +20,19 @@ function main() {
     })
     .then(answerSecretPassword => {
       if (answerSecretPassword.trim() === process.env.SECRET_AUTH_KEY) {
-        createUser(user);
+        changePassword(user);
       } else {
         throw new Error('Password secreta incorrecta');
       }
     });
 }
 
-function createUser(user: IUser) {
-  const URL = process.env.URL + '/auth/signup';
+function changePassword(user: IUser) {
+  const URL = process.env.URL + '/auth/change-password';
   axios
     .post(URL, user)
     .then(response => {
-      console.log('response', response.data);
+      console.log('\nLa contraseña ha sido cambiada');
     })
     .catch(error => console.log(error));
 }

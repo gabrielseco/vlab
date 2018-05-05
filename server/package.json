@@ -4,7 +4,8 @@
   "description": "Backend for vlab",
   "license": "MIT",
   "scripts": {
-    "exec:register": "ts-node src/modules/auth/register.exec",
+    "exec:register": "ts-node src/modules/auth/scripts/register.exec",
+    "exec:change-password": "ts-node src/modules/auth/scripts/change-password.exec",
     "precommit": "lint-staged",
     "commit": "git-cz",
     "start": "node index.js",
