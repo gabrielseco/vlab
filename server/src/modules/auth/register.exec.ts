@@ -16,7 +16,14 @@ function main() {
     })
     .then(answerPassword => {
       user.password = answerPassword.trim();
-      createUser(user);
+      return Prompt.ask('Password secreta: ', { type: 'password' });
+    })
+    .then(answerSecretPassword => {
+      if (answerSecretPassword.trim() === process.env.SECRET_AUTH_KEY) {
+        createUser(user);
+      } else {
+        throw new Error('Password secreta incorrecta');
+      }
     });
 }
 
