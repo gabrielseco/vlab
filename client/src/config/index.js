@@ -1,2 +1,1 @@
-/* eslint-disable */
-export const BASE_URL = process.env.BASE_URL;
+export const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';

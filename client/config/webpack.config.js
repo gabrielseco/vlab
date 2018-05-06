@@ -26,7 +26,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        BASE_URL: JSON.stringify('http://localhost:3000')
+        NODE_ENV: JSON.stringify('development') 
       }
     }),
     new HtmlWebpackPlugin({
