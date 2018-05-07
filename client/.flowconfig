@@ -11,7 +11,9 @@
 [options]
 module.system=haste
 module.name_mapper='^adapters' ->'<PROJECT_ROOT>/src/adapters'
+module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
 module.name_mapper='^config' ->'<PROJECT_ROOT>/src/config'
+module.name_mapper='^containers' ->'<PROJECT_ROOT>/src/containers'
 module.name_mapper='^services' ->'<PROJECT_ROOT>/src/services'
 
 
