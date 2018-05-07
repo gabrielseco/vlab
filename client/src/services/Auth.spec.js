@@ -1,3 +1,4 @@
+// @flow strict
 import { AuthService } from './Auth';
 
 describe('Auth', () => {
