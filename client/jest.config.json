@@ -21,7 +21,8 @@
   ],
   "setupFiles": [
     "<rootDir>/config/jest/test-shim.js",
-    "<rootDir>/config/jest/test-setup.js"
+    "<rootDir>/config/jest/test-setup.js",
+    "<rootDir>/config/jest/localStorage.js"
   ],
   "transform": {
     "^.+\\.js$": "babel-jest"
