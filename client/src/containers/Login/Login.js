@@ -66,7 +66,9 @@ class Login extends Component<{}, LoginForm> {
 }
 
 Login.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object
 };
+
+export { Login };
 
 export default withRouter(Login);

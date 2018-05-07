@@ -12,9 +12,11 @@
   },
   "notify": true,
   "moduleNameMapper": {
-    "components(.*)$": "<rootDir>/src/components/$1",
-    "containers(.*)$": "<rootDir>/src/containers/$1",
-    "services(.*)$": "<rootDir>/src/services/$1",
+    "^adapters(.*)$": "<rootDir>/src/adapters/$1",
+    "^components(.*)$": "<rootDir>/src/components/$1",
+    "^config(.*)$": "<rootDir>/src/config/$1",
+    "^containers(.*)$": "<rootDir>/src/containers/$1",
+    "^services(.*)$": "<rootDir>/src/services/$1",
     "\\.(scss)$": "<rootDir>/config/jest/styleMock.js"
   },
   "roots": [
