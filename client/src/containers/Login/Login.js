@@ -20,14 +20,10 @@ class Login extends Component<{}, LoginForm> {
   }
 
   async onSubmit(evt) {
-    console.log('calling on sumit');
     evt.preventDefault();
 
-    console.log('before calling authService', this.state);
     // TODO TRY CATCH
     const response = await this.authService.signIn(this.state);
-
-    console.log('response', response);
 
     this.authService.setToken(response.data.token);
 
