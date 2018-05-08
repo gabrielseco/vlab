@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login suite should create the snapshot of the login 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="subContainer"
+  >
+    <div
+      className="loginHeader"
+    >
+      <h1>
+        Login
+      </h1>
+    </div>
+    <form
+      className="loginForm"
+      onSubmit={[Function]}
+    >
+      <input
+        className="input__username_js"
+        name="username"
+        onChange={[Function]}
+        placeholder="Usuario"
+        type="text"
+        value="gabriel"
+      />
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Contraseña"
+        type="password"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Log In
+      </button>
+    </form>
+  </div>
+</div>
+`;

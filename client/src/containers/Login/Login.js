@@ -20,9 +20,14 @@ class Login extends Component<{}, LoginForm> {
   }
 
   async onSubmit(evt) {
+    console.log('calling on sumit');
     evt.preventDefault();
+
+    console.log('before calling authService', this.state);
     // TODO TRY CATCH
     const response = await this.authService.signIn(this.state);
+
+    console.log('response', response);
 
     this.authService.setToken(response.data.token);
 
@@ -49,6 +54,7 @@ class Login extends Component<{}, LoginForm> {
               placeholder="Usuario"
               value={this.state.username}
               onChange={this.onChange}
+              className="input__username_js"
             />
             <input
               type="password"
