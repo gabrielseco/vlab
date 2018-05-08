@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert suite should create the snapshot with props children and danger 1`] = `
+<div
+  className="alert danger"
+>
+  Mensaje de alerta
+</div>
+`;

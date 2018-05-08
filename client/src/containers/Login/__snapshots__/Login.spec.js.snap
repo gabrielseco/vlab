@@ -23,6 +23,7 @@ exports[`Login suite should create the snapshot of the login 1`] = `
         name="username"
         onChange={[Function]}
         placeholder="Usuario"
+        title="Usuario"
         type="text"
         value="gabriel"
       />
@@ -30,6 +31,7 @@ exports[`Login suite should create the snapshot of the login 1`] = `
         name="password"
         onChange={[Function]}
         placeholder="Contraseña"
+        title="Contraseña"
         type="password"
         value=""
       />
@@ -39,6 +41,9 @@ exports[`Login suite should create the snapshot of the login 1`] = `
         Log In
       </button>
     </form>
+    <div
+      className="separator"
+    />
   </div>
 </div>
 `;

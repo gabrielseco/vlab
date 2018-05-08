@@ -5,6 +5,7 @@ import styles from './Login.scss';
 import type { LoginForm } from './../../flow/login';
 
 import { AuthService } from 'services/Auth';
+import { Alert, Separator } from 'components';
 
 class Login extends Component<{}, LoginForm> {
   authService: AuthService;
@@ -12,7 +13,8 @@ class Login extends Component<{}, LoginForm> {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      error: false
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -22,12 +24,19 @@ class Login extends Component<{}, LoginForm> {
   async onSubmit(evt) {
     evt.preventDefault();
 
-    // TODO TRY CATCH
-    const response = await this.authService.signIn(this.state);
+    try {
+      const response = await this.authService.signIn(this.state);
 
-    this.authService.setToken(response.data.token);
+      this.authService.setToken(response.data.token);
 
-    this.props.history.push('/home');
+      this.props.history.push('/home');
+    } catch (err) {
+      if (err.response.status === 400) {
+        this.setState({
+          error: true
+        });
+      }
+    }
   }
 
   onChange(evt) {
@@ -48,6 +57,7 @@ class Login extends Component<{}, LoginForm> {
               type="text"
               name="username"
               placeholder="Usuario"
+              title="Usuario"
               value={this.state.username}
               onChange={this.onChange}
               className="input__username_js"
@@ -56,11 +66,16 @@ class Login extends Component<{}, LoginForm> {
               type="password"
               name="password"
               placeholder="Contraseña"
+              title="Contraseña"
               value={this.state.password}
               onChange={this.onChange}
             />
             <button type="submit">Log In</button>
           </form>
+          <Separator />
+          {this.state.error ? (
+            <Alert danger>Error usuario o contraseña</Alert>
+          ) : null}
         </div>
       </div>
     );

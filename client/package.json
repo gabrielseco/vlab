@@ -96,6 +96,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "apply-classes": "^1.0.3",
     "axios": "^0.18.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",

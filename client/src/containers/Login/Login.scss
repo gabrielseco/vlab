@@ -1,7 +1,8 @@
 $container-background: #eeeeee;
 
-$subcontainer-width: 350px;
 $subcontainer-background: #ffffff;
+$subcontainer-height: 315px;
+$subcontainer-width: 350px;
 
 $form-control-padding: 10px;
 $form-control-margin-bottom: 10px;
@@ -20,6 +21,7 @@ $form-control-margin-bottom: 10px;
   background: $subcontainer-background;
   display: flex;
   flex-direction: column;
+  min-height: $subcontainer-height;
   padding: 20px;
   width: $subcontainer-width;
 }
