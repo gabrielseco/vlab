@@ -4,10 +4,10 @@
   "coveragePathIgnorePatterns" : ["<rootDir>/config" ],
   "coverageThreshold": {
     "global": {
-      "branches": 30,
-      "functions": 50,
-      "lines": 50,
-      "statements": 50
+      "branches": 70,
+      "functions": 70,
+      "lines": 70,
+      "statements": 70
     }
   },
   "notify": true,
@@ -16,6 +16,7 @@
     "^components(.*)$": "<rootDir>/src/components/$1",
     "^config(.*)$": "<rootDir>/src/config/$1",
     "^containers(.*)$": "<rootDir>/src/containers/$1",
+    "^flow(.*)$": "<rootDir>/src/flow/$1",
     "^services(.*)$": "<rootDir>/src/services/$1",
     "\\.(scss)$": "<rootDir>/config/jest/styleMock.js"
   },

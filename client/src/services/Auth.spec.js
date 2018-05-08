@@ -1,7 +1,8 @@
 // @flow strict
 import { AuthService } from './Auth';
+import type { LoginForm } from 'flow/login';
 
-describe('Auth', () => {
+describe('Auth Service', () => {
   const authService = new AuthService();
   const token = 'SECRET';
 
@@ -16,7 +17,7 @@ describe('Auth', () => {
   });
 
   it('should post the login form', () => {
-    const login = {
+    const login: LoginForm = {
       username: 'ggarciaseco',
       password: '1234'
     };

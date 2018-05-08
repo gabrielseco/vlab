@@ -1,6 +1,6 @@
 // @flow strict
 import type { AxiosPromise } from 'axios';
-import type { LoginForm } from '../flow/login';
+import type { LoginForm } from 'flow/login';
 import { HttpClient } from 'adapters/HttpClient';
 import { BASE_URL } from 'config';
 import { LocalStorageService } from 'services/LocalStorage';
