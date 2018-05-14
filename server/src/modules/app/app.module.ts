@@ -3,10 +3,8 @@ import { AppController } from './app.controller';
 import { AuthModule } from './../auth/auth.module';
 
 @Module({
-  imports: [
-    AuthModule,
-  ],
+  imports: [AuthModule],
   controllers: [AppController],
-  components: [],
+  providers: []
 })
 export class ApplicationModule {}
