@@ -32,7 +32,7 @@ function createUser(user: IUser) {
   axios
     .post(URL, user)
     .then(response => {
-      console.log(`El usuario ${user.username} ha sido creado`);
+      console.log(`\nEl usuario ${user.username} ha sido creado`);
     })
     .catch(error => console.log(error));
 }

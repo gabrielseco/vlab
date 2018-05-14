@@ -1,13 +1,13 @@
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
-import { Component, Inject } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { UserDto } from './user.dto';
 import { Constants } from '../../constants';
 import { IUser } from './user.interface';
 import { API_MESSAGES } from '../../core/api_messages';
 
-@Component()
+@Injectable()
 export class AuthService {
   constructor(
     @Inject(Constants.UserRepositoryToken)
